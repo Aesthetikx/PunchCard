@@ -3,6 +3,7 @@ require 'sinatra/activerecord'
 
 require 'punch_card/punch'
 require 'punch_card/version'
+require 'punch_card/web'
 
 require 'action_view'
 include ActionView::Helpers::DateHelper
