@@ -1,14 +1,11 @@
-require 'sinatra'
 require 'sinatra/activerecord'
 
-require 'punch_card/punch'
-require 'punch_card/version'
-require 'punch_card/web'
+require_relative './punch_card/punch.rb'
+require_relative './punch_card/version.rb'
+require_relative './punch_card/web_app/app.rb'
 
 require 'action_view'
 include ActionView::Helpers::DateHelper
-
-set :database, {adapter: "sqlite3", database: "punch.sqlite3"}
 
 module PunchCard
 
