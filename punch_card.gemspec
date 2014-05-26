@@ -15,6 +15,7 @@ Gem::Specification.new do |s|
   s.homepage    = 'https://github.com/Aesthetikx/PunchCard'
   s.files       = `git ls-files`.split("\n")
 
+  s.add_dependency('actionview')
   s.add_dependency('rake')
   s.add_dependency('sinatra')
   s.add_dependency('sinatra-activerecord')

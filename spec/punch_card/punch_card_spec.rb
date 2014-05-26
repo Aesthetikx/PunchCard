@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'stringio'
 
 describe PunchCard do
 
@@ -39,6 +40,36 @@ describe PunchCard do
       expect(duration).to be_within(5.seconds).of(2.hours + 3.minutes)
     end
 
+  end
+
+  context 'status' do
+
+    before do
+      $stdout = StringIO.new
+      @name = Faker::Lorem.words(3).join(" ")
+    end
+
+    after(:all) do
+      $stdout = STDOUT
+    end
+
+    it 'prints status for inactive punch' do
+      PunchCard.punch_out @name
+      PunchCard.punch_status @name
+      msg = "PunchCard: not punched in.\n"
+      expect($stdout.string).to eq(msg)
+    end
+
+    it 'prints status for active punch' do
+      PunchCard.punch_in @name
+
+      Timecop.freeze(Time.now + 2.hours) do
+        PunchCard.punch_status @name
+      end
+
+      msg = "PunchCard: punched into #{@name} for about 2 hours.\n"
+      expect($stdout.string).to eq(msg)
+    end
   end
 
 end
