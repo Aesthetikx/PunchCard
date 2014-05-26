@@ -15,12 +15,13 @@ Gem::Specification.new do |s|
   s.homepage    = 'https://github.com/Aesthetikx/PunchCard'
   s.files       = `git ls-files`.split("\n")
 
+  s.add_dependency('rake')
   s.add_dependency('sinatra')
   s.add_dependency('sinatra-activerecord')
   s.add_dependency('sqlite3')
-  s.add_dependency('rake')
 
-  s.add_development_dependency('rspec')
   s.add_development_dependency('factory_girl')
+  s.add_development_dependency('faker')
+  s.add_development_dependency('rspec')
   s.add_development_dependency('timecop')
 end
