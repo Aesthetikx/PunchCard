@@ -1,5 +1,6 @@
-require 'rspec'
 require 'factory_girl'
+require 'faker'
+require 'rspec'
 require 'timecop'
 
 require 'punch_card'
